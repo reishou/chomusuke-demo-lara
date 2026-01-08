@@ -32,6 +32,7 @@ jobs:
             --exclude=storage/framework/views/
             --exclude=storage/framework/sessions/
             --exclude=.env
+            --exclude=.env.example
           path: ./  # toàn bộ project (bao gồm vendor, public, artisan...)
           remote_path: /var/www/lara.chomusuke.site/
           remote_host: ${{ secrets.SSH_HOST }}
