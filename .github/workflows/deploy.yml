@@ -48,7 +48,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            sudo chown deploy:www-data lara.chomusuke.site/
             cd /var/www/lara.chomusuke.site
             mkdir -p storage/logs storage/framework/{cache/data,views,sessions}
-            sudo chmod -R 775 storage bootstrap/cache
+            chmod -R 775 storage bootstrap/cache
