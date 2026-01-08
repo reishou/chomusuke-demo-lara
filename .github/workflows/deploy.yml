@@ -24,7 +24,14 @@ jobs:
       - name: Deploy via RSYNC
         uses: burnett01/rsync-deployments@v8
         with:
-          switches: -avzr --delete
+          switches: -avzr --delete --no-o --no-g
+            --exclude=.git/
+            --exclude=.github/
+            --exclude=storage/logs/
+            --exclude=storage/framework/cache/data/
+            --exclude=storage/framework/views/
+            --exclude=storage/framework/sessions/
+            --exclude=.env
           path: ./  # toàn bộ project (bao gồm vendor, public, artisan...)
           remote_path: /var/www/lara.chomusuke.site/
           remote_host: ${{ secrets.SSH_HOST }}
